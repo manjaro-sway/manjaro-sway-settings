@@ -24,22 +24,14 @@ jobs:
       -
         id: pkgbuild
         run: |
-          sudo -u builder makepkg --clean -s --noconfirm
+          sudo -u builder makepkg -s --noconfirm
 
           FILE_NAME=$(basename $(find . -type f -name "*.zst"))
           echo "FILE_NAME=$FILE_NAME" >> $GITHUB_ENV
 
-          VERSION_ARCH=${FILE_NAME#*-}
-          VERSION_ARCH=${VERSION_ARCH%.pkg.tar.zst}
-
-          PACKAGE_NAME=${FILE_NAME%%-*}
-          echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
-
-          VERSION=${VERSION_ARCH%-*}
+          INFO=$(find ./pkg -name ".PKGINFO" -exec grep pkgver {} \;)
+          VERSION=$(echo $INFO | sed -e 's/^pkgver = //')
           echo "VERSION=$VERSION" >> $GITHUB_ENV
-
-          ARCH=${VERSION_ARCH##*-}
-          echo "ARCH=$ARCH" >> $GITHUB_ENV
       - 
         id: release
         uses: actions/create-release@v1
