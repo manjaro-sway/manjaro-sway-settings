@@ -44,7 +44,7 @@ jobs:
           prerelease: false
       - 
         id: upload_release 
-        uses: boredland/upload-release-asset@master
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
