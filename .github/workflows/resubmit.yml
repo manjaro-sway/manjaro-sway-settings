@@ -1,0 +1,34 @@
+name: resubmit the release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  resubmit:
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        name: set version
+        run: |
+          LATEST_INFO=$(curl --silent "https://api.github.com/repos/${{ github.repository }}/releases/latest")
+          echo "FILE_NAME_AARCH64=$(echo $LATEST_INFO | jq -r '.assets[].name' | grep aarch64)" >> $GITHUB_ENV
+          echo "FILE_NAME_X86_64=$(echo $LATEST_INFO | jq -r '.assets[].name' | grep -E -i -w '(x86_64|any)')" >> $GITHUB_ENV
+          echo "VERSION=$(echo $LATEST_INFO | jq -r '.tag_name')" >> $GITHUB_ENV
+      - 
+        name: dispatch_aarch64
+        if: ${{ env.FILE_NAME_AARCH64 }} !== ""
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.DISPATCH }}
+          repository: manjaro-sway/packages
+          event-type: package_update
+          client-payload: '{ "repository": "${{ github.repository }}", "version": "${{ env.VERSION }}", "file_name": "${{ env.FILE_NAME_AARCH64 }}"}'
+      - 
+        name: dispatch_x86_64
+        if: ${{ env.FILE_NAME_X86_64 }} !== ""
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.DISPATCH }}
+          repository: manjaro-sway/packages
+          event-type: package_update
+          client-payload: '{ "repository": "${{ github.repository }}", "version": "${{ env.VERSION }}", "file_name": "${{ env.FILE_NAME_X86_64 }}"}'

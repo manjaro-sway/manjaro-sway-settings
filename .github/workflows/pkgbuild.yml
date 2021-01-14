@@ -13,7 +13,8 @@ jobs:
     container:
       image: docker://manjarosway/manjaro-package:latest
     steps:
-      - 
+      -   
+        name: cancel_concurrent
         uses: styfle/cancel-workflow-action@0.7.0
         with:
           access_token: ${{ github.token }}
@@ -25,18 +26,11 @@ jobs:
         run: |
           pacman -Syyu --noconfirm
           sudo chown -R builder .
-      -
-        name: pkgbuild
-        run: |
-          sudo -u builder makepkg -s --noconfirm
-
-          FILE_NAME=$(basename $(find . -type f -name "*.zst"))
-          echo "FILE_NAME=$FILE_NAME" >> $GITHUB_ENV
-
-          VERSION=$(find ./pkg -name ".PKGINFO" -exec cat {} \; | grep pkgver | sed -e 's/^pkgver = //')
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "AARCH=$(cat PKGBUILD | grep arch= | sed -e 's/^arch=//' | grep -q aarch64 && echo true || echo false)" >> $GITHUB_ENV
+          echo "X86_64=$(cat PKGBUILD | grep arch= | sed -e 's/^arch=//' | grep -q -E -i -w '(x86_64|any)' && echo true || echo false)" >> $GITHUB_ENV
+          echo "VERSION=$(cat PKGBUILD | grep pkgver= | sed -e 's/^pkgver=//')-$(cat PKGBUILD | grep pkgrel= | sed -e 's/^pkgrel=//')" >> $GITHUB_ENV
       - 
-        name: release
+        name: create_release
         id: release
         uses: actions/create-release@v1
         env:
@@ -46,20 +40,59 @@ jobs:
           release_name: Release ${{ env.VERSION }}
           draft: false
           prerelease: false
+      -
+        name: pkgbuild_x86_64
+        if: ${{ env.X86_64 }} === "true"
+        run: |
+          sudo -u builder makepkg -s --noconfirm
+
+          echo "FILE_NAME_X86_64=$(basename $(find . -type f -regextype posix-extended -regex '^.*(x86_64|any).*'))" >> $GITHUB_ENV
+
+          echo "VERSION=$(find ./pkg -name ".PKGINFO" -exec cat {} \; | grep pkgver | sed -e 's/^pkgver = //')" >> $GITHUB_ENV
       - 
-        id: upload_release 
+        name: upload_release_x86
+        if: ${{ env.X86_64 }} === "true"
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.release.outputs.upload_url }}
-          asset_path: ./${{ env.FILE_NAME }}
-          asset_name: ${{ env.FILE_NAME }}
-          asset_content_type: application/zstd  
+          asset_path: ./${{ env.FILE_NAME_X86_64 }}
+          asset_name: ${{ env.FILE_NAME_X86_64 }}
+          asset_content_type: application/zstd
       - 
+        name: dispatch_x86_64
+        if: ${{ env.X86_64 }} === "true"
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.DISPATCH }}
           repository: manjaro-sway/packages
           event-type: package_update
-          client-payload: '{ "repository": "${{ github.repository }}", "version": "${{ env.VERSION }}", "file_name": "${{ env.FILE_NAME }}"}'
+          client-payload: '{ "repository": "${{ github.repository }}", "version": "${{ env.VERSION }}", "file_name": "${{ env.FILE_NAME_X86_64 }}"}'
+      -
+        name: pkgbuild_aarch64
+        if: ${{ env.AARCH }} === "true"
+        run: |
+          sudo -u builder aarch64-makepkg -s --noconfirm
+
+          echo "FILE_NAME_AARCH64=$(basename $(find . -type f -regextype posix-extended -regex '^.*(aarch64).*'))" >> $GITHUB_ENV
+      - 
+        name: upload_release_aarch64
+        if: ${{ env.AARCH }} === "true"
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release.outputs.upload_url }}
+          asset_path: ./${{ env.FILE_NAME_AARCH64 }}
+          asset_name: ${{ env.FILE_NAME_AARCH64 }}
+          asset_content_type: application/zstd
+      - 
+        name: dispatch_aarch64
+        if: ${{ env.AARCH64 }} === "true"
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.DISPATCH }}
+          repository: manjaro-sway/packages
+          event-type: package_update
+          client-payload: '{ "repository": "${{ github.repository }}", "version": "${{ env.VERSION }}", "file_name": "${{ env.FILE_NAME_AARCH64 }}"}'
