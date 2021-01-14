@@ -1,0 +1,64 @@
+name: pkgbuild
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  pkgbuild:
+    runs-on: ubuntu-latest
+    container:
+      image: docker://manjarosway/manjaro-package:latest
+    steps:
+      - 
+        uses: styfle/cancel-workflow-action@0.7.0
+        with:
+          access_token: ${{ github.token }}
+      - 
+        name: checkout
+        uses: actions/checkout@v2
+      - 
+        name: prepare
+        run: |
+          pacman -Syyu --noconfirm
+          sudo chown -R builder .
+      -
+        name: pkgbuild
+        run: |
+          sudo -u builder makepkg -s --noconfirm
+
+          FILE_NAME=$(basename $(find . -type f -name "*.zst"))
+          echo "FILE_NAME=$FILE_NAME" >> $GITHUB_ENV
+
+          VERSION=$(find ./pkg -name ".PKGINFO" -exec cat {} \; | grep pkgver | sed -e 's/^pkgver = //')
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+      - 
+        name: release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.VERSION }}
+          release_name: Release ${{ env.VERSION }}
+          draft: false
+          prerelease: false
+      - 
+        id: upload_release 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release.outputs.upload_url }}
+          asset_path: ./${{ env.FILE_NAME }}
+          asset_name: ${{ env.FILE_NAME }}
+          asset_content_type: application/zstd  
+      - 
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.DISPATCH }}
+          repository: manjaro-sway/packages
+          event-type: package_update
+          client-payload: '{ "repository": "${{ github.repository }}", "version": "${{ env.VERSION }}", "file_name": "${{ env.FILE_NAME }}"}'
