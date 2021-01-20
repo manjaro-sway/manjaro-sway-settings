@@ -40,6 +40,7 @@ optdepends=(
     'wlsunset: time & place based light temperature'
     'kanshi: automatically load matching output profiles'
     'autotiling: automated tiling'
+    'kitty: terminal application with hardware acceleration'
 )
 conflicts=('manjaro-desktop-settings' 'manjaro-sway-settings-git')
 provides=('manjaro-desktop-settings')
