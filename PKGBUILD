@@ -2,7 +2,7 @@
 
 pkgname=manjaro-sway-settings
 pkgver=2.1.2
-pkgrel=1
+pkgrel=2
 arch=('any')
 _pkgbase=desktop-settings
 url="https://github.com/Manjaro-Sway/$_pkgbase/"
@@ -30,6 +30,7 @@ depends=(
     'jq' # parsing and manipulating json
     'khal' # calendar application around caldav
     'lm_sensors' # display sensor information
+    'mesa-demos' # required for terminal.sh script
 )
 makedepends=('git')
 optdepends=(
