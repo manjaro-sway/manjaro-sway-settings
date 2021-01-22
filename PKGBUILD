@@ -2,7 +2,7 @@
 
 pkgname=manjaro-sway-settings
 pkgver=2.2.0
-pkgrel=3
+pkgrel=4
 arch=('any')
 _pkgbase=desktop-settings
 url="https://github.com/Manjaro-Sway/$_pkgbase/"
