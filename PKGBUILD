@@ -16,7 +16,7 @@ depends=(
     'mako' # desktop notifications
     'sway' # the desktop manager
     'sbdp' # sway config docs parser
-    'sway-launcher-desktop' # tui launcher application
+    'ulauncher' # launcher application
     'swaylock' # lockscreen
     'grim' # screenshot tool
     'slurp' # helper for grim
