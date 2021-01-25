@@ -2,7 +2,7 @@
 
 pkgname=manjaro-sway-settings
 pkgver=3.2.1
-pkgrel=4
+pkgrel=5
 arch=('any')
 _pkgbase=desktop-settings
 url="https://github.com/Manjaro-Sway/$_pkgbase/"
@@ -16,7 +16,7 @@ depends=(
     'mako' # desktop notifications
     'sway' # the desktop manager
     'sbdp' # sway config docs parser
-    'ulauncher' # launcher application
+    'wofi' # launcher application
     'swaylock' # lockscreen
     'grim' # screenshot tool
     'slurp' # helper for grim
