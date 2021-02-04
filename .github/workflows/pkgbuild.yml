@@ -111,7 +111,7 @@ jobs:
       - 
         name: delete release if pkgbuild failed
         if: ${{ failure() && steps.release.outcome == 'success' && (steps.pkgbuild_aarch64.outcome != 'success' || steps.pkgbuild_x86_64.outcome != 'success') }}
-        uses: dev-drprasad/delete-tag-and-release@v0.1.2
+        uses: dev-drprasad/delete-tag-and-release@v0.1.3
         with:
           delete_release: true
           tag_name: ${{ env.VERSION }}
