@@ -13,7 +13,7 @@ jobs:
     name: prepare
     steps:
       - 
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.4
       - 
         name: check-updatable
         id: check
@@ -58,7 +58,7 @@ jobs:
             archlinux_arch: x86_64
     steps:
       - 
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.4
       -
         name: get-additional-gpg
         run: echo "ADDITIONAL_GPG=$(cat .github/additional_gpg)" >>$GITHUB_ENV
