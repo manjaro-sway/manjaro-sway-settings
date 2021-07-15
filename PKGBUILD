@@ -34,7 +34,7 @@ depends=(
     'mesa-demos' # required for terminal.sh script
     'manjaro-sway-wallpapers' # manjaro sway themed backgrounds
     'wf-recorder' # screen recording util
-    'wl-clipboard' # copy/paste utilities for wayland 
+    'wl-clipboard' # copy/paste utilities for wayland
 )
 makedepends=('git')
 optdepends=(
@@ -47,6 +47,7 @@ optdepends=(
     'autotiling: automated tiling'
     'kitty: terminal application with hardware acceleration'
     'clipman: clipboard manager'
+    'sworkstyle: dynamic workspace names (icons) in waybar'
 )
 conflicts=('manjaro-desktop-settings' 'manjaro-sway-settings-git')
 provides=('manjaro-desktop-settings')
