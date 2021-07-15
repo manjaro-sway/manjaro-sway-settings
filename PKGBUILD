@@ -22,9 +22,9 @@ depends=(
     'grim' # screenshot tool
     'slurp' # helper for grim
     'wob' # wayland overlay bar for brightness and volume
-    'termite' # configurable terminal application
     'wlogout' # nice logout menu
     'noto-fonts-emoji' # emji font
+    'kitty' # terminal application with hardware acceleration'
     'nerd-fonts-roboto-mono' # default monospace font
     'ttf-material-design-icons-webfont' # material design icons used in waybar
     'python-hjson' # cleaning json in config files
@@ -45,7 +45,6 @@ optdepends=(
     'wlsunset: time & place based light temperature'
     'kanshi: automatically load matching output profiles'
     'autotiling: automated tiling'
-    'kitty: terminal application with hardware acceleration'
     'clipman: clipboard manager'
 )
 conflicts=('manjaro-desktop-settings' 'manjaro-sway-settings-git')
