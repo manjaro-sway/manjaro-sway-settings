@@ -16,7 +16,7 @@ depends=(
     'mako' # desktop notifications
     'sway' # the desktop manager
     'sbdp' # sway config docs parser
-    'wofi' # launcher application
+    'rofi-wayland' # launcher application
     'swaylock' # lockscreen
     'swayidle' # idle management daemon
     'grim' # screenshot tool
@@ -45,7 +45,6 @@ optdepends=(
     'wlsunset: time & place based light temperature'
     'kanshi: automatically load matching output profiles'
     'autotiling: automated tiling'
-    'clipman: clipboard manager'
     'sworkstyle: dynamic workspace names (icons) in waybar'
 )
 conflicts=('manjaro-desktop-settings' 'manjaro-sway-settings-git')
