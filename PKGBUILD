@@ -27,11 +27,8 @@ depends=(
     'foot' # terminal application
     'nerd-fonts-roboto-mono' # default monospace font
     'ttf-material-design-icons-webfont' # material design icons used in waybar
-    'python-hjson' # cleaning json in config files
-    'jq' # parsing and manipulating json
     'khal' # calendar application around caldav
     'lm_sensors' # display sensor information
-    'mesa-demos' # required for terminal.sh script
     'manjaro-sway-wallpapers' # manjaro sway themed backgrounds
     'wf-recorder' # screen recording util
     'wl-clipboard' # copy/paste utilities for wayland
