@@ -26,7 +26,6 @@ depends=(
     'noto-fonts-emoji' # emoji font
     'foot' # terminal application
     'nerd-fonts-roboto-mono' # default monospace font
-    'ttf-material-design-icons-webfont' # material design icons used in waybar
     'khal' # calendar application around caldav
     'lm_sensors' # display sensor information
     'manjaro-sway-wallpapers' # manjaro sway themed backgrounds
