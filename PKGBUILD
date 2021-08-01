@@ -43,6 +43,7 @@ optdepends=(
     'kanshi: automatically load matching output profiles'
     'autotiling: automated tiling'
     'sworkstyle: dynamic workspace names (icons) in waybar'
+    'nwg-wrapper: conky like onscreen information'
 )
 conflicts=('manjaro-desktop-settings' 'manjaro-sway-settings-git')
 provides=('manjaro-desktop-settings')
