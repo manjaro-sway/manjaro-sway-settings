@@ -22,7 +22,6 @@ depends=(
     'grim' # screenshot tool
     'slurp' # helper for grim
     'wob' # wayland overlay bar for brightness and volume
-    'wlogout' # nice logout menu
     'noto-fonts-emoji' # emoji font
     'foot' # terminal application
     'nerd-fonts-roboto-mono' # default monospace font
