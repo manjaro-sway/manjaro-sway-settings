@@ -22,10 +22,9 @@ depends=(
     'grim' # screenshot tool
     'slurp' # helper for grim
     'wob' # wayland overlay bar for brightness and volume
-    'wlogout' # nice logout menu
-    'noto-fonts-emoji' # emoji font
     'foot' # terminal application
     'nerd-fonts-roboto-mono' # default monospace font
+    'jq' # parsing and manipulating json
     'khal' # calendar application around caldav
     'lm_sensors' # display sensor information
     'manjaro-sway-wallpapers' # manjaro sway themed backgrounds
@@ -34,7 +33,6 @@ depends=(
 )
 makedepends=('git')
 optdepends=(
-    'ranger: a keyboard centric file manager'
     'qutebrowser: a keyboard-centric browser'
     'flashfocus: better flashing on focus changes'
     'swaylock-effects: swaylock with nicer effects'
