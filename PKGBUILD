@@ -2,7 +2,7 @@
 
 pkgname=manjaro-sway-settings
 pkgver=8.5.3
-pkgrel=9
+pkgrel=11
 arch=('any')
 _pkgbase=desktop-settings
 url="https://github.com/Manjaro-Sway/$_pkgbase/"
@@ -41,6 +41,7 @@ optdepends=(
     'autotiling: automated tiling'
     'sworkstyle: dynamic workspace names (icons) in waybar'
     'nwg-wrapper: conky like onscreen information'
+    'cliphist: clipboard manager'
 )
 conflicts=('manjaro-desktop-settings' 'manjaro-sway-settings-git')
 provides=('manjaro-desktop-settings')
