@@ -2,7 +2,7 @@
 
 pkgname=manjaro-sway-settings
 pkgver=8.6.0
-pkgrel=11
+pkgrel=12
 arch=('any')
 _pkgbase=desktop-settings
 url="https://github.com/Manjaro-Sway/$_pkgbase/"
@@ -31,6 +31,7 @@ depends=(
     'wl-clipboard' # copy/paste utilities for wayland
     'nwg-wrapper' # conky like onscreen information'
     'cliphist' # clipboard manager
+    'noto-fonts-emoji' # emoji font (e.g. weather icons)
 )
 makedepends=('git')
 optdepends=(
