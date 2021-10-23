@@ -30,7 +30,6 @@ depends=(
     'wf-recorder' # screen recording util
     'wl-clipboard' # copy/paste utilities for wayland
     'nwg-wrapper' # conky like onscreen information'
-    'cliphist' # clipboard manager
     'noto-fonts-emoji' # emoji font (e.g. weather icons)
 )
 makedepends=('git')
@@ -43,6 +42,7 @@ optdepends=(
     'autotiling: automated tiling'
     'sworkstyle: dynamic workspace names (icons) in waybar'
     'nwg-wrapper: conky like onscreen information'
+    'cliphist: clipboard manager'
 )
 conflicts=('manjaro-desktop-settings' 'manjaro-sway-settings-git')
 provides=('manjaro-desktop-settings')
