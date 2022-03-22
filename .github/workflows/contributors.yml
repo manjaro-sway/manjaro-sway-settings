@@ -14,7 +14,7 @@ jobs:
       with:
         permission: "write"
     - name: create comment in target repo
-      uses: peter-evans/create-or-update-comment@v1
+      uses: peter-evans/create-or-update-comment@v2
       if: contains(github.event.comment.body, '@all-contributors')
       with:
         issue-number: 73
