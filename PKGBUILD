@@ -47,6 +47,7 @@ optdepends=(
     'swaycwd: open here helper'
     'zeit: a simple time tracker'
     'dex: execute DesktopEntry files on autostart'
+    'poweralertd: battery and power notifications'
 )
 conflicts=('manjaro-desktop-settings' 'manjaro-sway-settings-git')
 provides=('manjaro-desktop-settings')
