@@ -46,6 +46,7 @@ optdepends=(
     'cliphist: clipboard manager'
     'swaycwd: open here helper'
     'zeit: a simple time tracker'
+    'dex: execute DesktopEntry files on autostart'
 )
 conflicts=('manjaro-desktop-settings' 'manjaro-sway-settings-git')
 provides=('manjaro-desktop-settings')
