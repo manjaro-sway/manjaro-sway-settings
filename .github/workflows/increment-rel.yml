@@ -7,6 +7,10 @@ on:
         description: 'pkgrel to set - will iterate if not given'     
         required: false
 
+concurrency: 
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
 jobs:
   increment:
     runs-on: ubuntu-latest

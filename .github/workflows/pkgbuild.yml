@@ -12,6 +12,10 @@ on:
       - master
       - main
 
+concurrency: 
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
 jobs:
   pkgbuild:
     runs-on: ubuntu-20.04

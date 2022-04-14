@@ -4,6 +4,10 @@ on:
   repository_dispatch:
     types: [source_update]
 
+concurrency: 
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
 jobs:
   update-version:
     runs-on: ubuntu-latest
