@@ -30,7 +30,7 @@ jobs:
             docker_arch: amd64
     name: pkgbuild for ${{ matrix.archlinux_arch }}
     steps:
-      - uses: actions/checkout@v3.0.0
+      - uses: actions/checkout@v3.0.2
       - name: pkgbuild
         id: pkgbuild
         uses: Manjaro-Sway/manjaro-package-action@main
