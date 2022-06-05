@@ -32,6 +32,7 @@ depends=(
     'wl-clipboard' # copy/paste utilities for wayland
     'nwg-wrapper' # conky like onscreen information'
     'noto-fonts-emoji' # emoji font (e.g. weather icons)
+    'swaybg' # background switcher
 )
 makedepends=('git')
 optdepends=(
