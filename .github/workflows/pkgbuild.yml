@@ -41,14 +41,3 @@ jobs:
           gpg_signing_key_base64: ${{ secrets.GPG_SECRET_KEY_BASE64 }}
           dispatch-token: ${{ secrets.DISPATCH }}
           force-update: ${{ github.event.inputs.force-update }}
-      - name: telegram
-        if: failure()
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          disable_web_page_preview: true
-          message: |
-            Failed to build ${{ github.repository }} for ${{ matrix.archlinux_arch }}
-            
-            Check pipeline: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
