@@ -31,6 +31,9 @@ jobs:
     name: pkgbuild for ${{ matrix.archlinux_arch }}
     steps:
       - uses: actions/checkout@v3.0.2
+        with:
+          persist-credentials: false
+          fetch-depth: 1
       - name: pkgbuild
         id: pkgbuild
         uses: Manjaro-Sway/manjaro-package-action@main
