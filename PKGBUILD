@@ -52,14 +52,22 @@ optdepends=(
 )
 conflicts=('manjaro-desktop-settings' 'manjaro-sway-settings-git')
 provides=('manjaro-desktop-settings')
-source=("$pkgname-$pkgver.tar.gz::${url}/archive/${pkgver}.tar.gz")
 _sourcemd5=a1b82a2ce6eb581a3051229c3ef90b5c
-md5sums=("$_sourcemd5")
+source=(
+    "$pkgname-$pkgver.tar.gz::${url}/archive/${pkgver}.tar.gz"
+    "waybar-tooltips.tar.gz::https://github.com/TheChymera/waybar-tooltips/archive/0.0.1.tar.gz"
+)
+md5sums=(
+    "$_sourcemd5" # desktop settings
+    "8b48f813457d3215fe88f203253930df" # waybar tooltips
+)
 install=.install
 
 package() {
     install -d $pkgdir/etc
     install -d $pkgdir/usr
     cp -r $_pkgbase-$pkgver/community/sway/etc/* "${pkgdir}/etc/"
-    cp -r $_pkgbase-$pkgver/community/sway/usr/* "${pkgdir}/usr/" 
+    cp -r $_pkgbase-$pkgver/community/sway/usr/* "${pkgdir}/usr/"
+    cp -r waybar-tooltips-0.0.1/bin/waybar-tooltip-khal.py "${pkgdir}/usr/share/sway/scripts/khal.py"
+    cp -r waybar-tooltips-0.0.1/LICENSE "${pkgdir}/usr/share/sway/scripts/khal.py.LICENSE"
 }
