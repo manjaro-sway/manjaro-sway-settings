@@ -30,7 +30,7 @@ jobs:
             docker_arch: amd64
     name: pkgbuild for ${{ matrix.archlinux_arch }}
     steps:
-      - uses: actions/checkout@v3.0.2
+      - uses: actions/checkout@v3.1.0
         with:
           persist-credentials: false
           fetch-depth: 1
