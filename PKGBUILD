@@ -33,6 +33,7 @@ depends=(
     'nwg-wrapper' # conky like onscreen information'
     'noto-fonts-emoji' # emoji font (e.g. weather icons)
     'swaybg' # background switcher
+    'ttf-opensans' # contains the roboto font used in a lot of places
 )
 makedepends=('git')
 optdepends=(
