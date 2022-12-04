@@ -6,7 +6,7 @@ on:
     - cron:  '*/30 * * * *'
   
 env:
-  UPSTREAM_GIT: https://aur.archlinux.org/oh-my-zsh-git.git
+  UPSTREAM_GIT: __UPSTREAM__
 
 jobs:
   rebase:
