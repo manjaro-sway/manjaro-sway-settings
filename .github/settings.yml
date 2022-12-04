@@ -1,5 +1,5 @@
 # inherits settings from https://github.com/Manjaro-Sway/.github/blob/main/.github/settings.yml
 _extends: .github
 repository:
-  homepage: 
+  homepage: https://aur.archlinux.org/oh-my-zsh-git.git
 # you can extend settings using https://probot.github.io/apps/settings/

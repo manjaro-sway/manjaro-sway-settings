@@ -24,13 +24,13 @@ jobs:
         if: ${{ env.SKIP == 'false' }}
         run: |
           LATEST_INFO=$(curl --silent "https://api.github.com/repos/${{ github.repository }}/releases/latest")
-          echo "::set-output name=file-name-aarch64::$(echo $LATEST_INFO | jq -r '.assets[].name' | grep aarch64)"
-          echo "::set-output name=file-name-x86_64::$(echo $LATEST_INFO | jq -r '.assets[].name' | grep -E -i -w '(x86_64|any)')"
+          echo "file-name-aarch64=$(echo $LATEST_INFO | jq -r '.assets[].name' | grep aarch64)" >>$GITHUB_OUTPUT
+          echo "file-name-x86_64=$(echo $LATEST_INFO | jq -r '.assets[].name' | grep -E -i -w '(x86_64|any)')" >>$GITHUB_OUTPUT
           echo "VERSION=$(echo $LATEST_INFO | jq -r '.tag_name')" >> $GITHUB_ENV
       - 
         name: dispatch_aarch64
         if: ${{ env.SKIP == 'false' && steps.version.outputs.file-name-aarch64 != '' }}
-        uses: peter-evans/repository-dispatch@v2
+        uses: peter-evans/repository-dispatch@f2696244ec00ed5c659a5cc77f7138ad0302dffb # v2
         with:
           token: ${{ secrets.DISPATCH }}
           repository: manjaro-sway/packages
@@ -39,7 +39,7 @@ jobs:
       - 
         name: dispatch_x86_64
         if: ${{ env.SKIP == 'false' && steps.version.outputs.file-name-x86_64 != '' }}
-        uses: peter-evans/repository-dispatch@v2
+        uses: peter-evans/repository-dispatch@f2696244ec00ed5c659a5cc77f7138ad0302dffb # v2
         with:
           token: ${{ secrets.DISPATCH }}
           repository: manjaro-sway/packages

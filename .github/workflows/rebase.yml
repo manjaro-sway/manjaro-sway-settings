@@ -6,7 +6,7 @@ on:
     - cron:  '*/30 * * * *'
   
 env:
-  UPSTREAM_GIT: "https://aur.archlinux.org/autotiling.git"
+  UPSTREAM_GIT: https://aur.archlinux.org/oh-my-zsh-git.git
 
 jobs:
   rebase:
@@ -14,22 +14,22 @@ jobs:
     steps:
     - 
       name: checkout
-      uses: actions/checkout@v3.0.2
+      uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3.1.0
       with:
         token: ${{ secrets.PUSH_AND_TRIGGER }}
+        fetch-depth: 0
     - 
       name: add ssh pk
       if: ${{ contains(env.UPSTREAM_GIT, 'ssh') }}
-      run: mkdir -p ~/.ssh/id_rsa && echo "${{ secrets.SSH_BASE64 }}" | base64 -d >~/.ssh/id_rsa
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_BASE64 }}" | base64 -d >~/.ssh/id_rsa && chmod 400 ~/.ssh/id_rsa
+        [ -f .github/additional_known_hosts ] && cat .github/additional_known_hosts >> ~/.ssh/known_hosts
     - 
       name: check if behind upstream
       run: |
         git remote add upstream ${UPSTREAM_GIT}
         git fetch upstream
-        git merge-base --is-ancestor $(git branch --show-current) upstream/$(git branch --show-current) && exit 1 || exit 0
-    - 
-      name: rebase
-      if: ${{ failure() }}
-      run: |
-        git rebase
-        git push --force-with-lease
+        git config --global user.email "info@manjaro-sway.download"
+        git config --global user.name "Manjaro Sway"
+        git rebase upstream/$(git branch --show-current) && git push --force-with-lease
