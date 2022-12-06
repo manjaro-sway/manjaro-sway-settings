@@ -24,8 +24,8 @@ jobs:
         if: ${{ env.SKIP == 'false' }}
         run: |
           LATEST_INFO=$(curl --silent "https://api.github.com/repos/${{ github.repository }}/releases/latest")
-          echo "file-name-aarch64=$(echo $LATEST_INFO | jq -r '.assets[].name' | grep aarch64 | tr '\n' ' ')" >>$GITHUB_OUTPUT
-          echo "file-name-x86_64=$(echo $LATEST_INFO | jq -r '.assets[].name' | grep -E -i -w '(x86_64|any)' | tr '\n' ' ')" >>$GITHUB_OUTPUT
+          echo "file-name-aarch64=$(echo $LATEST_INFO | jq -r '.assets[].name' | grep -m1 aarch64)" >>$GITHUB_OUTPUT
+          echo "file-name-x86_64=$(echo $LATEST_INFO | jq -r '.assets[].name' | grep -m1 -E -i -w '(x86_64|any)')" >>$GITHUB_OUTPUT
           echo "VERSION=$(echo $LATEST_INFO | jq -r '.tag_name')" >> $GITHUB_ENV
       - 
         name: dispatch_aarch64
