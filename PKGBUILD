@@ -1,7 +1,7 @@
 # Maintainer: Jonas Strassel <info@jonas-strassel.de>
 
 pkgname=manjaro-sway-settings
-pkgver=13.2.0
+pkgver=13.2.1
 pkgrel=22
 arch=('any')
 _pkgbase=desktop-settings
@@ -55,7 +55,7 @@ optdepends=(
 )
 conflicts=('manjaro-desktop-settings' 'manjaro-sway-settings-git')
 provides=('manjaro-desktop-settings')
-_sourcemd5=a56745a4f8547e7f5fb6bf5c2be0fdd7
+_sourcemd5=30027eddc30d3c56ceeb1be956b2d971
 source=(
     "$pkgname-$pkgver.tar.gz::${url}/archive/${pkgver}.tar.gz"
     "waybar-tooltips.tar.gz::https://github.com/TheChymera/waybar-tooltips/archive/0.0.4.tar.gz"
