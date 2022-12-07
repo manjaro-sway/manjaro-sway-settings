@@ -2,7 +2,7 @@
 
 pkgname=manjaro-sway-settings
 pkgver=13.2.1
-pkgrel=22
+pkgrel=23
 arch=('any')
 _pkgbase=desktop-settings
 url="https://github.com/Manjaro-Sway/$_pkgbase"
@@ -36,6 +36,7 @@ depends=(
     'ttf-liberation'          # contains the roboto font used in a lot of places
     'htop'                    # system monitor
     'swappy'                  # screenshot editing tool
+    'inotify-tools'           # file watchers etc
 )
 makedepends=('git')
 optdepends=(
