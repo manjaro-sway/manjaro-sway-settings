@@ -30,7 +30,7 @@ jobs:
       - 
         name: dispatch_aarch64
         if: ${{ env.SKIP == 'false' && steps.version.outputs.file-name-aarch64 != '' }}
-        uses: peter-evans/repository-dispatch@f2696244ec00ed5c659a5cc77f7138ad0302dffb # v2
+        uses: peter-evans/repository-dispatch@26b39ed245ab8f31526069329e112ab2fb224588 # v2
         with:
           token: ${{ secrets.DISPATCH }}
           repository: manjaro-sway/packages
@@ -39,7 +39,7 @@ jobs:
       - 
         name: dispatch_x86_64
         if: ${{ env.SKIP == 'false' && steps.version.outputs.file-name-x86_64 != '' }}
-        uses: peter-evans/repository-dispatch@f2696244ec00ed5c659a5cc77f7138ad0302dffb # v2
+        uses: peter-evans/repository-dispatch@26b39ed245ab8f31526069329e112ab2fb224588 # v2
         with:
           token: ${{ secrets.DISPATCH }}
           repository: manjaro-sway/packages
