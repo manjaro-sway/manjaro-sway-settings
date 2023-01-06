@@ -28,7 +28,7 @@ jobs:
     - 
       name: check if behind upstream
       run: |
-        if [ "$UPSTREAM_GIT" ~= .*"UPSTREAM".* ];then exit 0;fi
+        if [[ "$UPSTREAM_GIT" == *"UPSTREAM"* ]];then exit 0;fi
         git remote add upstream ${UPSTREAM_GIT}
         git fetch upstream
         git config --global user.email "info@manjaro-sway.download"
