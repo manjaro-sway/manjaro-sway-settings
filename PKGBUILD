@@ -2,7 +2,7 @@
 
 pkgname=manjaro-sway-settings
 pkgver=14.0.0
-pkgrel=23
+pkgrel=24
 arch=('any')
 _pkgbase=desktop-settings
 url="https://github.com/Manjaro-Sway/$_pkgbase"
@@ -25,7 +25,6 @@ depends=(
     'foot-terminfo'           # terminal info for foot
     'nerd-fonts-roboto-mono'  # default monospace font
     'jq'                      # json parsing and manipulation
-    'khal'                    # calendar application around caldav
     'lm_sensors'              # display sensor information
     'manjaro-sway-wallpapers' # manjaro sway themed backgrounds
     'wf-recorder'             # screen recording util
@@ -37,6 +36,7 @@ depends=(
     'htop'                    # system monitor
     'swappy'                  # screenshot editing tool
     'inotify-tools'           # file watchers etc
+    'bluetuith'               # bluetooth management tool
 )
 makedepends=('git')
 optdepends=(
@@ -59,12 +59,10 @@ provides=('manjaro-desktop-settings')
 _sourcemd5=067482a4d772491d220ed3b7a86562f3
 source=(
     "$pkgname-$pkgver.tar.gz::${url}/archive/${pkgver}.tar.gz"
-    "waybar-tooltips.tar.gz::https://github.com/TheChymera/waybar-tooltips/archive/0.0.4.tar.gz"
     "https://github.com/arcolinux/arcolinux-on-the-road/raw/cfbcc902b9520cc4ff73584dd80f34c54a158c75/root/usr/local/bin/skel"
 )
 md5sums=(
     "$_sourcemd5"                      # desktop settings
-    "f900eaacb1824e05c37ac4fb4a62436d" # waybar tooltips
     "3ce84d692c6fdbaf31e1b602bc890aa4" # skel update script from arcolinux
 )
 install=.install
@@ -74,7 +72,5 @@ package() {
     install -d $pkgdir/usr/bin
     cp -r $_pkgbase-$pkgver/community/sway/etc/* "${pkgdir}/etc/"
     cp -r $_pkgbase-$pkgver/community/sway/usr/* "${pkgdir}/usr/"
-    install -D waybar-tooltips-0.0.4/bin/waybar-tooltip-khal.py "${pkgdir}/usr/share/sway/scripts/khal.py"
-    install -D waybar-tooltips-0.0.4/LICENSE "${pkgdir}/usr/share/sway/scripts/khal.py.LICENSE"
     install -D -m 755 skel "${pkgdir}/usr/bin/skel"
 }
