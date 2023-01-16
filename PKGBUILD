@@ -2,7 +2,7 @@
 
 pkgname=manjaro-sway-settings
 pkgver=14.3.0
-pkgrel=26
+pkgrel=27
 arch=('any')
 _pkgbase=desktop-settings
 url="https://github.com/Manjaro-Sway/$_pkgbase"
@@ -55,6 +55,7 @@ optdepends=(
     'zeit: a simple time tracker'
     'dex: execute DesktopEntry files on autostart'
     'poweralertd: battery and power notifications'
+    'wluma: adaptive brightness based on screen contents and ALS'
 )
 conflicts=('manjaro-desktop-settings' 'manjaro-sway-settings-git')
 provides=('manjaro-desktop-settings')
