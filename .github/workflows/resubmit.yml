@@ -12,27 +12,19 @@ concurrency:
 jobs:
   resubmit:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        branch: [stable, testing, unstable]
     steps:
-      - name: determine skip
+      - id: versions
         run: |
-          if [[ "$GITHUB_EVENT_NAME" == "workflow_dispatch" || $(( RANDOM % 6 )) == 0 ]];
-          then 
-            echo "SKIP=false" >> $GITHUB_ENV
-          fi
-      - 
-        id: version
-        if: ${{ env.SKIP == 'false' }}
-        run: |
-          LATEST_INFO=$(curl --silent "https://api.github.com/repos/${{ github.repository }}/releases/latest")
-          echo "file-name-aarch64=$(echo $LATEST_INFO | jq -r '.assets[].name' | grep -m1 aarch64)" >>$GITHUB_OUTPUT
-          echo "file-name-x86_64=$(echo $LATEST_INFO | jq -r '.assets[].name' | grep -m1 -E -i -w '(x86_64|any)')" >>$GITHUB_OUTPUT
-          echo "VERSION=$(echo $LATEST_INFO | jq -r '.tag_name')" >> $GITHUB_ENV
-      - 
-        name: dispatch
-        if: ${{ env.SKIP == 'false' }}
+          echo ${{ github.token }} | gh auth login --with-token
+          versions="$(gh release list --limit 3 | grep \"${{ matrix.branch }}\" | head -1 | awk '{print $1;}')"
+          echo "versions=${versions}" >> $GITHUB_OUTPUT
+      - name: dispatch
         uses: peter-evans/repository-dispatch@26b39ed245ab8f31526069329e112ab2fb224588 # v2
         with:
           token: ${{ secrets.DISPATCH }}
           repository: manjaro-sway/packages
           event-type: package_update
-          client-payload: '{ "repository": "${{ github.repository }}", "version": "${{ env.VERSION }}" }'
+          client-payload: '{ "repository": "${{ github.repository }}", "version": "${{ steps.version.outputs.versions }}" }'
