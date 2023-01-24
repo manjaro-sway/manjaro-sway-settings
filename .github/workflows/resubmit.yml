@@ -16,6 +16,8 @@ jobs:
       matrix:
         branch: [stable, testing, unstable]
     steps:
+      - id: checkout
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
       - id: versions
         run: |
           echo ${{ github.token }} | gh auth login --with-token
