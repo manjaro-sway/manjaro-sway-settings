@@ -29,9 +29,9 @@ jobs:
           echo "versions=${versions}" >> $GITHUB_OUTPUT
       - name: dispatch
         uses: peter-evans/repository-dispatch@26b39ed245ab8f31526069329e112ab2fb224588 # v2
-        if: steps.version.outputs.versions != ''
+        if: steps.versions.outputs.versions != ''
         with:
           token: ${{ secrets.DISPATCH }}
           repository: manjaro-sway/packages
           event-type: package_update
-          client-payload: '{ "repository": "${{ github.repository }}", "version": "${{ steps.version.outputs.versions }}" }'
+          client-payload: '{ "repository": "${{ github.repository }}", "version": "${{ steps.versions.outputs.versions }}" }'
