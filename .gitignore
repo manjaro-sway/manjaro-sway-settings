@@ -1,5 +1,5 @@
 *
 !PKGBUILD
 !.github
-!.github/*
+!.github/**/*
 !.install

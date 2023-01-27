@@ -1,5 +1,5 @@
 # inherits settings from https://github.com/Manjaro-Sway/.github/blob/main/.github/settings.yml
-_extends: .github
+_extends: manjaro-contrib/.github
 repository:
   homepage: __UPSTREAM__
 # you can extend settings using https://probot.github.io/apps/settings/
