@@ -19,9 +19,13 @@ jobs:
       - id: checkout
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
       - id: skip
-        run: echo "random=$(( RANDOM % 6 ))" >> $GITHUB_OUTPUT
+        run: |
+          echo "random=0" >> $GITHUB_OUTPUT
+          if [[ "$GITHUB_EVENT_NAME" == "schedule" ]]; then 
+            echo "random=$(( RANDOM % 10 ))" >> $GITHUB_OUTPUT
+          fi
       - id: versions
-        if: steps.skip.outputs.random != 0
+        if: steps.skip.outputs.random == 0
         run: |
           echo ${{ github.token }} | gh auth login --with-token
           gh release list --limit 3 | grep ${{ matrix.branch }} | head -1 | awk '{print $1;}'
@@ -29,7 +33,7 @@ jobs:
           echo "versions=${versions}" >> $GITHUB_OUTPUT
       - name: dispatch
         uses: peter-evans/repository-dispatch@26b39ed245ab8f31526069329e112ab2fb224588 # v2
-        if: steps.versions.outputs.versions != ''
+        if: steps.skip.outputs.random == 0
         with:
           token: ${{ secrets.DISPATCH }}
           repository: manjaro-sway/packages
