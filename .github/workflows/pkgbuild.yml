@@ -4,7 +4,6 @@ on:
   repository_dispatch:
     types:
       - rebase
-      - source_update
   workflow_dispatch:
   push:
     branches:
