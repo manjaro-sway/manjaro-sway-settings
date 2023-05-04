@@ -2,7 +2,7 @@
 
 pkgname=manjaro-sway-settings
 pkgver=14.9.1
-pkgrel=31
+pkgrel=32
 arch=('any')
 _pkgbase=desktop-settings
 url="https://github.com/Manjaro-Sway/$_pkgbase"
@@ -24,7 +24,7 @@ depends=(
     'foot'                    # terminal application
     'foot-terminfo'           # terminal info for foot
     'ttf-roboto-mono-nerd'    # default monospace font
-    'ttf-meslo-nerd-font-powerlevel10k' # future monosprace font
+    'ttf-jetbrains-mono-nerd' # next monospace font
     'jq'                      # json parsing and manipulation
     'calcurse'                # tui calendar application
     'lm_sensors'              # display sensor information
