@@ -14,7 +14,7 @@ depends=(
     'waybar'                  # configurable bar
     'light'                   # cli to control brightness
     'mako'                    # desktop notifications
-    'sway'                    # the desktop manager
+    'sway'                    # window manager
     'rofi-wayland'            # launcher application
     'swaylock'                # lockscreen
     'swayidle'                # idle management daemon
