@@ -2,7 +2,7 @@
 
 pkgname=manjaro-sway-settings
 pkgver=14.9.1
-pkgrel=32
+pkgrel=33
 arch=('any')
 _pkgbase=desktop-settings
 url="https://github.com/Manjaro-Sway/$_pkgbase"
@@ -49,7 +49,7 @@ optdepends=(
     'swaylock-effects: swaylock with nicer effects'
     'wlsunset: time & place based light temperature'
     'kanshi: automatically load matching output profiles'
-    'autotiling: automated tiling'
+    'autotiling-rs: automated tiling'
     'sworkstyle: dynamic workspace names (icons) in waybar'
     'nwg-wrapper: conky like onscreen information'
     'cliphist: clipboard manager'
@@ -73,8 +73,8 @@ md5sums=(
 install=.install
 
 package() {
-    install -d $pkgdir/etc
-    install -d $pkgdir/usr/bin
+    install -d "$pkgdir"/etc
+    install -d "$pkgdir"/usr/bin
     cp -r $_pkgbase-$pkgver/community/sway/etc/* "${pkgdir}/etc/"
     cp -r $_pkgbase-$pkgver/community/sway/usr/* "${pkgdir}/usr/"
     install -D -m 755 skel "${pkgdir}/usr/bin/skel"
