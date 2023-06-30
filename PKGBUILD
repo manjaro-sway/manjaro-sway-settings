@@ -2,7 +2,7 @@
 
 pkgname=manjaro-sway-settings
 pkgver=15.3.0
-pkgrel=33
+pkgrel=34
 arch=('any')
 _pkgbase=desktop-settings
 url="https://github.com/Manjaro-Sway/$_pkgbase"
@@ -59,7 +59,7 @@ optdepends=(
     'poweralertd: battery and power notifications'
     'wluma: adaptive brightness based on screen contents and ALS'
 )
-conflicts=('manjaro-desktop-settings' 'manjaro-sway-settings-git')
+conflicts=('manjaro-sway-settings-git')
 provides=('manjaro-desktop-settings')
 _sourcemd5=09b14cabc2b2196609474416bd244f45
 source=(
