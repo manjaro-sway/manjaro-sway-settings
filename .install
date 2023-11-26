@@ -1,7 +1,7 @@
 update() {
     manjaro-sway-mirrors check || echo "## updating manjaro-sway-mirrors" && sudo manjaro-sway-mirrors
-    swaymsg reload
     echo -e "\033[0;33m## in order to update your user configuration, run: skel\033[0m"
+    echo -e "\033[0;33m## in order to apply your user configuration, run: swaymsg reload\033[0m"
 }
 
 post_install() {
