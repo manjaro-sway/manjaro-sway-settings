@@ -1,8 +1,8 @@
 # Maintainer: Jonas Strassel <info@jonas-strassel.de>
 
 pkgname=manjaro-sway-settings
-pkgver=15.8.0
-pkgrel=34
+pkgver=16.0.0
+pkgrel=0
 arch=('any')
 _pkgbase=desktop-settings
 url="https://github.com/Manjaro-Sway/$_pkgbase"
@@ -18,29 +18,32 @@ depends=(
     'rofi-wayland'            # launcher application
     'swaylock'                # lockscreen
     'swayidle'                # idle management daemon
+    'swayr'                   # window switcher
     'grim'                    # screenshot tool
     'slurp'                   # helper for grim
     'wob'                     # wayland overlay bar for brightness and volume
     'foot'                    # terminal application
     'foot-terminfo'           # terminal info for foot
-    'ttf-roboto-mono-nerd'    # default monospace font
-    'ttf-jetbrains-mono-nerd' # next monospace font
     'jq'                      # json parsing and manipulation
     'calcurse'                # tui calendar application
     'lm_sensors'              # display sensor information
-    'manjaro-sway-wallpapers' # manjaro sway themed backgrounds
     'wf-recorder'             # screen recording util
     'wl-clipboard'            # copy/paste utilities for wayland
     'nwg-wrapper'             # conky like onscreen information'
     'noto-fonts-emoji'        # emoji font (e.g. weather icons)
-    'swaybg'                  # background switcher
-    'ttf-roboto'              # contains the roboto font used in a lot of places
     'htop'                    # system monitor
     'swappy'                  # screenshot editing tool
     'inotify-tools'           # file watchers etc
     'bluetuith'               # bluetooth management tool
     'swayr'                   # lru window switcher for sway
     'bc'                      # basic tiny calculation util
+    ## theme
+    'ttf-jetbrains-mono-nerd' # default monospace font
+    'ttf-roboto'              # default font
+    'papirus-maia-icon-theme' # default icon theme
+    'xcursor-breeze'          # default cursor theme
+    'matcha-gtk-theme'        # default gtk (gnome etc.) theme
+    'kvantum-theme-matcha'    # default kvantum (kde etc.) theme
 )
 makedepends=('git')
 optdepends=(
