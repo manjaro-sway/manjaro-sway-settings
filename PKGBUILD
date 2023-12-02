@@ -37,6 +37,7 @@ depends=(
     'bluetuith'               # bluetooth management tool
     'swayr'                   # lru window switcher for sway
     'bc'                      # basic tiny calculation util
+    'xdg-terminal-exec-git'   # upcoming execute in terminal xdg standard
     ## theme
     'ttf-jetbrains-mono-nerd' # default monospace font
     'ttf-roboto'              # default font
