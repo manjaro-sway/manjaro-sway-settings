@@ -1,7 +1,7 @@
 # Maintainer: Jonas Strassel <info@jonas-strassel.de>
 
 pkgname=manjaro-sway-settings
-pkgver=16.4.0
+pkgver=16.4.1
 pkgrel=1
 arch=('any')
 _pkgbase=desktop-settings
@@ -67,7 +67,7 @@ optdepends=(
 )
 conflicts=('manjaro-sway-settings-git')
 provides=('manjaro-desktop-settings')
-_sourcemd5=3ab417b6b19dede7321958959bdb5ca5
+_sourcemd5=89c6b6e9106d7c3fc5fb7be0a01472c3
 source=(
     "$pkgname-$pkgver.tar.gz::${url}/archive/${pkgver}.tar.gz"
     "https://github.com/arcolinux/arcolinux-on-the-road/raw/cfbcc902b9520cc4ff73584dd80f34c54a158c75/root/usr/local/bin/skel"
