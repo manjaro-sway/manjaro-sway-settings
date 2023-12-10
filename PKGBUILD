@@ -11,33 +11,34 @@ pkgdesc='Manjaro Sway Settings'
 groups=('sway-manjaro')
 depends=(
     'manjaro-base-skel'
-    'waybar'                  # configurable bar
-    'light'                   # cli to control brightness
-    'mako'                    # desktop notifications
-    'sway'                    # window manager
-    'rofi-wayland'            # launcher application
-    'swaylock'                # lockscreen
-    'swayidle'                # idle management daemon
-    'swayr'                   # window switcher
-    'grim'                    # screenshot tool
-    'slurp'                   # helper for grim
-    'wob'                     # wayland overlay bar for brightness and volume
-    'foot'                    # terminal application
-    'foot-terminfo'           # terminal info for foot
-    'jq'                      # json parsing and manipulation
-    'calcurse'                # tui calendar application
-    'lm_sensors'              # display sensor information
-    'wf-recorder'             # screen recording util
-    'wl-clipboard'            # copy/paste utilities for wayland
-    'nwg-wrapper'             # conky like onscreen information'
-    'noto-fonts-emoji'        # emoji font (e.g. weather icons)
-    'htop'                    # system monitor
-    'swappy'                  # screenshot editing tool
-    'inotify-tools'           # file watchers etc
-    'bluetuith'               # bluetooth management tool
-    'swayr'                   # lru window switcher for sway
-    'bc'                      # basic tiny calculation util
-    'xdg-terminal-exec-git'   # upcoming execute in terminal xdg standard
+    'waybar'                # configurable bar
+    'light'                 # cli to control brightness
+    'mako'                  # desktop notifications
+    'sway'                  # window manager
+    'rofi-wayland'          # launcher application
+    'swaylock'              # lockscreen
+    'swayidle'              # idle management daemon
+    'swayr'                 # window switcher
+    'grim'                  # screenshot tool
+    'slurp'                 # helper for grim
+    'wob'                   # wayland overlay bar for brightness and volume
+    'foot'                  # terminal application
+    'foot-terminfo'         # terminal info for foot
+    'jq'                    # json parsing and manipulation
+    'calcurse'              # tui calendar application
+    'lm_sensors'            # display sensor information
+    'wf-recorder'           # screen recording util
+    'wl-clipboard'          # copy/paste utilities for wayland
+    'nwg-wrapper'           # conky like onscreen information'
+    'noto-fonts-emoji'      # emoji font (e.g. weather icons)
+    'htop'                  # system monitor
+    'swappy'                # screenshot editing tool
+    'inotify-tools'         # file watchers etc
+    'bluetuith'             # bluetooth management tool
+    'swayr'                 # lru window switcher for sway
+    'bc'                    # basic tiny calculation util
+    'xdg-terminal-exec-git' # upcoming execute in terminal xdg standard
+    'idlehack-git'          # inhibit swayidle on dbus messages that request screensaver inhibit
     ## theme
     'ttf-jetbrains-mono-nerd' # default monospace font
     'ttf-roboto'              # default font
