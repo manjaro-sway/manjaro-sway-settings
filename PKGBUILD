@@ -54,7 +54,7 @@ optdepends=(
     'flashfocus: better flashing on focus changes'
     'swaylock-effects: swaylock with nicer effects'
     'wlsunset: time & place based light temperature'
-    'kanshi: automatically load matching output profiles'
+    'way-displays: automated display management'
     'autotiling: automated tiling'
     'sworkstyle: dynamic workspace names (icons) in waybar'
     'nwg-wrapper: conky like onscreen information'
