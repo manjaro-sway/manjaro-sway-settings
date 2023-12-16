@@ -55,7 +55,7 @@ optdepends=(
     'swaylock-effects: swaylock with nicer effects'
     'wlsunset: time & place based light temperature'
     'kanshi: automatically load matching output profiles'
-    'autotiling-rs: automated tiling'
+    'autotiling: automated tiling'
     'sworkstyle: dynamic workspace names (icons) in waybar'
     'nwg-wrapper: conky like onscreen information'
     'cliphist: clipboard manager'
