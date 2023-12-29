@@ -18,7 +18,6 @@ depends=(
     'rofi-wayland'          # launcher application
     'swaylock'              # lockscreen
     'swayidle'              # idle management daemon
-    'swayr'                 # window switcher
     'grim'                  # screenshot tool
     'slurp'                 # helper for grim
     'wob'                   # wayland overlay bar for brightness and volume
