@@ -2,7 +2,7 @@
 
 pkgname=manjaro-sway-settings
 pkgver=16.9.3
-pkgrel=1
+pkgrel=2
 arch=('any')
 _pkgbase=desktop-settings
 url="https://github.com/Manjaro-Sway/$_pkgbase"
@@ -63,6 +63,8 @@ optdepends=(
     'dex: execute DesktopEntry files on autostart'
     'poweralertd: battery and power notifications'
     'wluma: adaptive brightness based on screen contents and ALS'
+    'valent: kdeconnect-like tool without the kde bloat'
+    'pacseek: package manager tui'
 )
 conflicts=('manjaro-sway-settings-git')
 provides=('manjaro-desktop-settings')
