@@ -2,7 +2,7 @@
 
 pkgname=manjaro-sway-settings
 pkgver=16.9.4
-pkgrel=2
+pkgrel=3
 arch=('any')
 _pkgbase=desktop-settings
 url="https://github.com/Manjaro-Sway/$_pkgbase"
@@ -17,6 +17,7 @@ depends=(
     'sway'                  # window manager
     'rofi-wayland'          # launcher application
     'swaylock'              # lockscreen
+    'sway-services'         # systemd services for sway
     'swayidle'              # idle management daemon
     'grim'                  # screenshot tool
     'slurp'                 # helper for grim
