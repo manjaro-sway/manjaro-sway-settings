@@ -2,7 +2,7 @@
 
 pkgname=manjaro-sway-settings
 pkgver=16.10.0
-pkgrel=4
+pkgrel=5
 arch=('any')
 _pkgbase=desktop-settings
 url="https://github.com/Manjaro-Sway/$_pkgbase"
@@ -12,7 +12,7 @@ groups=('sway-manjaro')
 depends=(
     'manjaro-base-skel'
     'waybar'                # configurable bar
-    'light'                 # cli to control brightness
+    'brightnessctl'         # cli to control brightness
     'mako'                  # desktop notifications
     'sway'                  # window manager
     'rofi-wayland'          # launcher application
@@ -38,8 +38,8 @@ depends=(
     'bluetuith'             # bluetooth management tool
     'swayr'                 # lru window switcher for sway
     'bc'                    # basic tiny calculation util
-    'xdg-terminal-exec-git' # upcoming execute in terminal xdg standard
-    'idlehack-git'          # inhibit swayidle on dbus messages that request screensaver inhibit
+    'xdg-terminal-exec'     # upcoming execute in terminal xdg standard
+    'idlehack'              # inhibit swayidle on dbus messages that request screensaver inhibit
     'dex'                   # executes desktop entries on autostart
     ## theme
     'ttf-jetbrains-mono-nerd' # default monospace font
