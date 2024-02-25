@@ -2,7 +2,7 @@
 
 pkgname=manjaro-sway-settings
 pkgver=16.14.0
-pkgrel=6
+pkgrel=7
 arch=('any')
 _pkgbase=desktop-settings
 url="https://github.com/Manjaro-Sway/$_pkgbase"
@@ -34,6 +34,7 @@ depends=(
     'noto-fonts-emoji'      # emoji font (e.g. weather icons)
     'htop'                  # system monitor
     'swappy'                # screenshot editing tool
+    'grimshot'              # screenshot tool
     'inotify-tools'         # file watchers etc
     'bluetuith'             # bluetooth management tool
     'swayr'                 # lru window switcher for sway
