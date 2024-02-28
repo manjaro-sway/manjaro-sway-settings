@@ -18,11 +18,15 @@ jobs:
   version:
     name: gather information
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: check out repo
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
       - id: version
         uses: manjaro-contrib/action-pkgbuild-info@main
+        with:
+          arm-runs-on: ${{ vars.arm_runner }}
     outputs:
       runs-on: ${{ steps.version.outputs.runs-on }}
       version: ${{ steps.version.outputs.version }}
