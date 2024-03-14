@@ -16,9 +16,36 @@ jobs:
       contents: write
       pull-requests: write
     steps:
+      - name: checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - run: yq '.repository.topics = "arch, package"' -i .github/settings.yml
+      - id: version
+        uses: manjaro-contrib/action-pkgbuild-info@main
+      - if: steps.version.outputs.x86_64 == 'true'
+        uses: mikefarah/yq@9adde1ac14bb283b8955d2b0d567bcaf3c69e639 # v4.42.1
+        with:
+          cmd: yq '.repository.topics += ", x86-64"' -i .github/settings.yml
+      - if: steps.version.outputs.aarch64 == 'true'
+        uses: mikefarah/yq@9adde1ac14bb283b8955d2b0d567bcaf3c69e639 # v4.42.1
+        with:
+          cmd: yq '.repository.topics += ", aarch64"' -i .github/settings.yml
+      - if: steps.version.outputs.any == 'true'
+        uses: mikefarah/yq@9adde1ac14bb283b8955d2b0d567bcaf3c69e639 # v4.42.1
+        with:
+          cmd: yq '.repository.topics += ", any"' -i .github/settings.yml
+      - name: commit
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "Manjaro Bot"
+            git config user.email "info@jonas-strassel.de"
+            git add .github/settings.yml
+            git commit -m "chore(actions-rebase): update topics"
+            git push
+          fi
       - name: rebase
         uses: manjaro-contrib/action-rebase@main
         with:
           upstream: __UPSTREAM__
           dispatch-target: ${{ vars.PACKAGES_REPO }}
           dispatch-token: ${{ secrets.DISPATCH_TOKEN }}
+      
