@@ -2,7 +2,7 @@
 
 pkgname=manjaro-sway-settings
 pkgver=16.19.6
-pkgrel=7
+pkgrel=8
 arch=('any')
 _pkgbase=desktop-settings
 url="https://github.com/Manjaro-Sway/$_pkgbase"
@@ -44,6 +44,8 @@ depends=(
     'dex'                   # executes desktop entries on autostart
     'swaybg'                # wallpaper setter
     ## theme
+    'kvantum'                 # theme engine for qt
+    'kvantum-qt5'             # theme engine for qt (qt 5 support)
     'ttf-jetbrains-mono-nerd' # default monospace font
     'ttf-roboto'              # default font
     'papirus-maia-icon-theme' # default icon theme
