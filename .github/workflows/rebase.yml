@@ -22,15 +22,15 @@ jobs:
       - id: version
         uses: manjaro-contrib/action-pkgbuild-info@main
       - if: steps.version.outputs.x86_64 == 'true'
-        uses: mikefarah/yq@c35ec752e38ea0c096d3c44e13cfc0797ac394d8 # v4.43.1
+        uses: mikefarah/yq@557dcb87b8efe786f89a12c09e9046b4753ab72e # v4.44.1
         with:
           cmd: yq '.repository.topics += ", x86-64"' -i .github/settings.yml
       - if: steps.version.outputs.aarch64 == 'true'
-        uses: mikefarah/yq@c35ec752e38ea0c096d3c44e13cfc0797ac394d8 # v4.43.1<
+        uses: mikefarah/yq@557dcb87b8efe786f89a12c09e9046b4753ab72e # v4.44.1
         with:
           cmd: yq '.repository.topics += ", aarch64"' -i .github/settings.yml
       - if: steps.version.outputs.any == 'true'
-        uses: mikefarah/yq@c35ec752e38ea0c096d3c44e13cfc0797ac394d8 # v4.43.1
+        uses: mikefarah/yq@557dcb87b8efe786f89a12c09e9046b4753ab72e # v4.44.1
         with:
           cmd: yq '.repository.topics += ", any"' -i .github/settings.yml
       - name: commit
