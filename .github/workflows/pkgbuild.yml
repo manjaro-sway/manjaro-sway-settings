@@ -4,6 +4,7 @@ on:
   repository_dispatch:
     types:
       - rebase
+      - pkgrel-incremented
   workflow_dispatch:
   push:
     branches:

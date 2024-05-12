@@ -1,0 +1,40 @@
+name: increment-pkgrel
+
+on:
+  repository_dispatch:
+    types:
+      - increment-pkgrel
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+    
+jobs:
+  increment-pkgrel:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: checkout
+        uses: actions/checkout@main
+      - id: increment-pkgrel
+        run: |
+            CURRENT_PKGREL=$(cat PKGBUILD | grep -oP 'pkgrel=\K[0-9]+')
+            INCREMENTED_PKGREL=$((CURRENT_PKGREL + 1))
+            sed -i "s/pkgrel=$CURRENT_PKGREL/pkgrel=$INCREMENTED_PKGREL/" PKGBUILD
+      - name: commit
+        run: |
+            if [ -n "$(git status --porcelain)" ]; then
+                git config user.name "Manjaro Bot"
+                git config user.email "info@jonas-strassel.de"
+                git add PKGBUILD
+                git commit -m "chore(actions-increment-pkgrel): increment pkgrel"
+                git push
+            fi
+      - name: dispatch
+        uses: peter-evans/repository-dispatch@26b39ed245ab8f31526069329e112ab2fb224588 # v2
+        with:
+            token: ${{ secrets.DISPATCH_TOKEN || github.token }}
+            repository: ${{ github.repository }}
+            event-type: pkgrel-incremented

@@ -6,7 +6,7 @@ on:
     - cron:  '*/30 * * * *'
 
 concurrency:
-  group: rebase
+  group: ${{ github.workflow }}
   cancel-in-progress: true
 
 jobs:
@@ -33,6 +33,10 @@ jobs:
         uses: mikefarah/yq@557dcb87b8efe786f89a12c09e9046b4753ab72e # v4.44.1
         with:
           cmd: yq '.repository.topics += ", any"' -i .github/settings.yml
+      - if: steps.version.outputs.python == 'true'
+        uses: mikefarah/yq@557dcb87b8efe786f89a12c09e9046b4753ab72e # v4.44.1
+        with:
+          cmd: yq '.repository.topics += ", python"' -i .github/settings.yml
       - name: commit
         run: |
           if [ -n "$(git status --porcelain)" ]; then
