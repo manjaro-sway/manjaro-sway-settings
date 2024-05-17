@@ -43,6 +43,7 @@ depends=(
     'idlehack'              # inhibit swayidle on dbus messages that request screensaver inhibit
     'dex'                   # executes desktop entries on autostart
     'swaybg'                # wallpaper setter
+    'netcat'                # network utility (e.g. for termbin)
     ## theme
     'kvantum'                 # theme engine for qt
     'kvantum-qt5'             # theme engine for qt (qt 5 support)
