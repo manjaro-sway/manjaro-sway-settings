@@ -72,6 +72,7 @@ optdepends=(
     'valent: kdeconnect-like tool without the kde bloat'
     'pacseek: package manager tui'
     'openbsd-netcat: network utility (e.g. for termbin)'
+    'pacman-log-orphans-hook: pacman hook to log orphaned packages'
 )
 conflicts=('manjaro-sway-settings-git')
 provides=('manjaro-desktop-settings')
