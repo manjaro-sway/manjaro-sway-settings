@@ -32,7 +32,7 @@ depends=(
     'wl-clipboard'          # copy/paste utilities for wayland
     'nwg-wrapper'           # conky like onscreen information'
     'noto-fonts-emoji'      # emoji font (e.g. weather icons)
-    'htop'                  # system monitor
+    'btop'                  # system monitor
     'swappy'                # screenshot editing tool
     'grimshot'              # screenshot tool
     'inotify-tools'         # file watchers etc
