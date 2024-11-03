@@ -75,6 +75,7 @@ optdepends=(
     'pacseek: package manager tui'
     'openbsd-netcat: network utility (e.g. for termbin)'
     'pacman-log-orphans-hook: pacman hook to log orphaned packages'
+    'pcmanfm-qt: file manager'
 )
 conflicts=('manjaro-sway-settings-git')
 provides=('manjaro-desktop-settings')
