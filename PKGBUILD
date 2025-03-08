@@ -59,7 +59,7 @@ makedepends=('git')
 optdepends=(
     'qutebrowser: a keyboard-centric browser'
     'flashfocus: better flashing on focus changes'
-    'swaylock-effects: swaylock with nicer effects'
+    'swaylock: lockscreen'
     'wlsunset: time & place based light temperature'
     'way-displays: automated display management'
     'autotiling: automated tiling'
