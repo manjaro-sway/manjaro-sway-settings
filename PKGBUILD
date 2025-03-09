@@ -16,7 +16,7 @@ depends=(
     'mako'                  # desktop notifications
     'sway'                  # window manager
     'rofi-wayland'          # launcher application
-    'swaylock'              # lockscreen
+    'gtklock'               # lockscreen
     'sway-services'         # systemd services for sway
     'wl-clip-persist'       # persists clipboard content between containers
     'swayidle'              # idle management daemon
@@ -59,7 +59,10 @@ makedepends=('git')
 optdepends=(
     'qutebrowser: a keyboard-centric browser'
     'flashfocus: better flashing on focus changes'
-    'swaylock: lockscreen'
+    'waylock: reference lockscreen for ext-session-lock-v1'
+    'gtklock: lockscreen based on gtkgreet'
+    'swaylock: minimalistic lockscreen'
+    'swaylock-effects: minimalistic lockscreen with fancy effects'
     'wlsunset: time & place based light temperature'
     'way-displays: automated display management'
     'autotiling: automated tiling'
