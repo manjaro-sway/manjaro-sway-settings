@@ -2,7 +2,7 @@
 
 pkgname=manjaro-sway-settings
 pkgver=16.37.0
-pkgrel=9
+pkgrel=10
 arch=('any')
 _pkgbase=desktop-settings
 url="https://github.com/Manjaro-Sway/$_pkgbase"
@@ -11,40 +11,39 @@ pkgdesc='Manjaro Sway Settings'
 groups=('sway-manjaro')
 depends=(
     'manjaro-base-skel'
-    'waybar'                # configurable bar
-    'brightnessctl'         # cli to control brightness
-    'mako'                  # desktop notifications
-    'sway'                  # window manager
-    'rofi-wayland'          # launcher application
-    'gtklock'               # lockscreen
-    'sway-services'         # systemd services for sway
-    'wl-clip-persist'       # persists clipboard content between containers
-    'swayidle'              # idle management daemon
-    'grim'                  # screenshot tool
-    'slurp'                 # helper for grim
-    'wob'                   # wayland overlay bar for brightness and volume
-    'foot'                  # terminal application
-    'foot-terminfo'         # terminal info for foot
-    'jq'                    # json parsing and manipulation
-    'calcurse'              # tui calendar application
-    'lm_sensors'            # display sensor information
-    'wf-recorder'           # screen recording util
-    'wl-clipboard'          # copy/paste utilities for wayland
-    'nwg-wrapper'           # conky like onscreen information'
-    'noto-fonts-emoji'      # emoji font (e.g. weather icons)
-    'btop'                  # system monitor
-    'swappy'                # screenshot editing tool
-    'grimshot'              # screenshot tool
-    'inotify-tools'         # file watchers etc
-    'bluetuith'             # bluetooth management tool
-    'swayr'                 # lru window switcher for sway
-    'bc'                    # basic tiny calculation util
-    'xdg-terminal-exec'     # upcoming execute in terminal xdg standard
-    'idlehack'              # inhibit swayidle on dbus messages that request screensaver inhibit
-    'dex'                   # executes desktop entries on autostart
-    'swaybg'                # wallpaper setter
-    'rofimoji'              # emoji picker
-    'wtype'                 # programmatically type
+    'waybar'            # configurable bar
+    'brightnessctl'     # cli to control brightness
+    'mako'              # desktop notifications
+    'sway'              # window manager
+    'rofi-wayland'      # launcher application
+    'sway-services'     # systemd services for sway
+    'wl-clip-persist'   # persists clipboard content between containers
+    'swayidle'          # idle management daemon
+    'grim'              # screenshot tool
+    'slurp'             # helper for grim
+    'wob'               # wayland overlay bar for brightness and volume
+    'foot'              # terminal application
+    'foot-terminfo'     # terminal info for foot
+    'jq'                # json parsing and manipulation
+    'calcurse'          # tui calendar application
+    'lm_sensors'        # display sensor information
+    'wf-recorder'       # screen recording util
+    'wl-clipboard'      # copy/paste utilities for wayland
+    'nwg-wrapper'       # conky like onscreen information'
+    'noto-fonts-emoji'  # emoji font (e.g. weather icons)
+    'btop'              # system monitor
+    'swappy'            # screenshot editing tool
+    'grimshot'          # screenshot tool
+    'inotify-tools'     # file watchers etc
+    'bluetuith'         # bluetooth management tool
+    'swayr'             # lru window switcher for sway
+    'bc'                # basic tiny calculation util
+    'xdg-terminal-exec' # upcoming execute in terminal xdg standard
+    'idlehack'          # inhibit swayidle on dbus messages that request screensaver inhibit
+    'dex'               # executes desktop entries on autostart
+    'swaybg'            # wallpaper setter
+    'rofimoji'          # emoji picker
+    'wtype'             # programmatically type
     ## theme
     'kvantum'                 # theme engine for qt
     'kvantum-qt5'             # theme engine for qt (qt 5 support)
