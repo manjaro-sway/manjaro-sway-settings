@@ -50,7 +50,7 @@ depends=(
     'ttf-jetbrains-mono-nerd' # default monospace font
     'ttf-roboto'              # default font
     'papirus-maia-icon-theme' # default icon theme
-    'xcursor-breeze'          # default cursor theme
+    'breeze-cursors5'         # default cursor theme
     'matcha-gtk-theme'        # default gtk (gnome etc.) theme
     'kvantum-theme-matcha'    # default kvantum (kde etc.) theme
 )
