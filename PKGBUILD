@@ -43,7 +43,6 @@ depends=(
     'dex'               # executes desktop entries on autostart
     'swaybg'            # wallpaper setter
     'rofimoji'          # emoji picker
-    'wtype'             # programmatically type
     ## theme
     'kvantum'                 # theme engine for qt
     'kvantum-qt5'             # theme engine for qt (qt 5 support)
