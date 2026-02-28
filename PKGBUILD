@@ -47,12 +47,6 @@ depends=(
     'kvantum'                 # theme engine for qt
     'kvantum-qt5'             # theme engine for qt (qt 5 support)
     'ttf-jetbrains-mono-nerd' # default monospace font
-    'ttf-roboto'              # default font
-    'papirus-maia-icon-theme' # default icon theme
-    'breeze-cursors5'         # default cursor theme
-    'matcha-gtk-theme'        # default gtk (gnome etc.) theme
-    'kvantum-theme-matcha'    # default kvantum (kde etc.) theme
-    'kvantum-theme-catppuccin-git' # kvantum themes for catppuccin, dracula and nordic
 )
 makedepends=('git')
 optdepends=(
