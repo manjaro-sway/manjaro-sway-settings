@@ -52,6 +52,7 @@ depends=(
     'breeze-cursors5'         # default cursor theme
     'matcha-gtk-theme'        # default gtk (gnome etc.) theme
     'kvantum-theme-matcha'    # default kvantum (kde etc.) theme
+    'kvantum-theme-catppuccin-git' # kvantum themes for catppuccin, dracula and nordic
 )
 makedepends=('git')
 optdepends=(
