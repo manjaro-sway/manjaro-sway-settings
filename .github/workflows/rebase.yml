@@ -17,12 +17,12 @@ jobs:
       pull-requests: write
     steps:
       - name: checkout
-        uses: actions/checkout@main
+        uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98 # main
         with:
           token: ${{ secrets.BOOTSTRAP_WORKFLOWS || github.token }}
       - run: yq '.repository.topics = "arch, package"' -i .github/settings.yml
       - id: version
-        uses: manjaro-contrib/action-pkgbuild-info@main
+        uses: manjaro-contrib/action-pkgbuild-info@3f938d44444c3b5dbd46105c08a712fdc18c4a1a # main
       - if: steps.version.outputs.x86_64 == 'true'
         uses: mikefarah/yq@5a7e72a743649b1b3a47d1a1d8214f3453173c51 # v4.52.4
         with:
@@ -49,7 +49,7 @@ jobs:
             git push
           fi
       - name: rebase
-        uses: manjaro-contrib/action-rebase@main
+        uses: manjaro-contrib/action-rebase@b27f4f306e99244c7f4c704169f29f808477f4b4 # main
         with:
           token: ${{ secrets.BOOTSTRAP_WORKFLOWS || github.token }}
           upstream: __UPSTREAM__
