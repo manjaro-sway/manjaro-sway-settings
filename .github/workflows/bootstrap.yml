@@ -10,10 +10,10 @@ jobs:
     permissions: write-all
     steps:
       - name: checkout
-        uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98 # main
+        uses: actions/checkout@main
         with:
           token: ${{ secrets.BOOTSTRAP_WORKFLOWS || github.token }}
       - id: bootstrap
-        uses: manjaro-contrib/action-bootstrap-actions@d47f79c177de9dce50a24feaaa7c16ff2e4185ff # main
+        uses: manjaro-contrib/action-bootstrap-actions@main
         with:
           upstream: __UPSTREAM__
