@@ -20,7 +20,7 @@ jobs:
       contents: write
     steps:
       - name: submit
-        uses: manjaro-contrib/action-submit@b1d2fcb95dee2b2be1d0565b62cf0cbb55fc0977 # main
+        uses: manjaro-contrib/action-submit@main
         with:
           dispatch-target: ${{ vars.PACKAGES_REPO }}
           dispatch-token: ${{ secrets.DISPATCH_TOKEN }}
