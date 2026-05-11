@@ -16,7 +16,7 @@ jobs:
       contents: write
     steps:
       - name: checkout
-        uses: actions/checkout@main
+        uses: actions/checkout@900f2210b1d28bbbd0bd22d17926b9e224e8f231 # main
       - id: increment-pkgrel
         run: |
             CURRENT_PKGREL=$(cat PKGBUILD | grep -oP 'pkgrel=\K[0-9]+')
