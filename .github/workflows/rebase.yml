@@ -24,19 +24,19 @@ jobs:
       - id: version
         uses: manjaro-contrib/action-pkgbuild-info@main
       - if: steps.version.outputs.x86_64 == 'true'
-        uses: mikefarah/yq@751d8ad57b84f1794661bc70c0afb92a22ad7b3c # v4.53.2
+        uses: mikefarah/yq@1b9b4ac5187171d2e5e3129be0cfa827c7f9d53d # v4.53.3
         with:
           cmd: yq '.repository.topics += ", x86-64"' -i .github/settings.yml
       - if: steps.version.outputs.aarch64 == 'true'
-        uses: mikefarah/yq@751d8ad57b84f1794661bc70c0afb92a22ad7b3c # v4.53.2
+        uses: mikefarah/yq@1b9b4ac5187171d2e5e3129be0cfa827c7f9d53d # v4.53.3
         with:
           cmd: yq '.repository.topics += ", aarch64"' -i .github/settings.yml
       - if: steps.version.outputs.any == 'true'
-        uses: mikefarah/yq@751d8ad57b84f1794661bc70c0afb92a22ad7b3c # v4.53.2
+        uses: mikefarah/yq@1b9b4ac5187171d2e5e3129be0cfa827c7f9d53d # v4.53.3
         with:
           cmd: yq '.repository.topics += ", any"' -i .github/settings.yml
       - if: steps.version.outputs.python == 'true'
-        uses: mikefarah/yq@751d8ad57b84f1794661bc70c0afb92a22ad7b3c # v4.53.2
+        uses: mikefarah/yq@1b9b4ac5187171d2e5e3129be0cfa827c7f9d53d # v4.53.3
         with:
           cmd: yq '.repository.topics += ", python"' -i .github/settings.yml
       - name: commit
