@@ -23,7 +23,7 @@ jobs:
       contents: write
     steps:
       - name: check out repo
-        uses: actions/checkout@f0282184c7ce73ab54c7e4ab5a617122602e575f # main
+        uses: actions/checkout@b9e0990d219a03df7633c93f6f005a8fecbcab22 # main
       - id: version
         uses: manjaro-contrib/action-pkgbuild-info@main
         with:

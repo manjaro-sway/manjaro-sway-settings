@@ -10,7 +10,7 @@ jobs:
     permissions: write-all
     steps:
       - name: checkout
-        uses: actions/checkout@f0282184c7ce73ab54c7e4ab5a617122602e575f # main
+        uses: actions/checkout@b9e0990d219a03df7633c93f6f005a8fecbcab22 # main
         with:
           token: ${{ secrets.BOOTSTRAP_WORKFLOWS || github.token }}
       - id: bootstrap
